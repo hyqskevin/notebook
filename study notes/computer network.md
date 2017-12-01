@@ -4,7 +4,7 @@
 - #### 1.3 网络的组成结构
   - 物理结构：通信子网(网络核心，分为交换节点和访问节点)，资源子网(网络边缘，端节点)
 
-  |端系统/主机(资源子网)|边缘路由器|—通信链路/分组交换机—|ISP(网络的网络)|网络核心(通信子网)|
+  |端系统/主机(资源子网)|边缘路由器|通信链路/分组交换机|ISP(网络的网络)|网络核心(通信子网)|
   |:----- |:-----|:-----|:----|:----|
   |end system/host|edge router|packet switch|Internet Service Provider|Internet|
   |PC/服务器(server)/移动计算机|DSL/电缆/FTTH/以太网/WiFi/3G|路由器(router)/链路层交换机(link-layer switch)|ISP/PoP/多宿/对等/IXP|
