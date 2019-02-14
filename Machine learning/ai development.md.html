@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>ai development</title>
+      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(85, 85, 85); background-color: white; overflow: auto; }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(3, 3, 3); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(3, 3, 3); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(126, 126, 126); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: black; }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(126, 126, 126); border-color: rgb(214, 214, 214); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top: 2px dashed rgb(214, 214, 214); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(3, 3, 3); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(214, 214, 214); }
+.markdown-preview:not([data-use-github-style]) code { color: rgb(3, 3, 3); background-color: rgb(240, 240, 240); }
+.markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(245, 245, 245); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(3, 3, 3); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(214, 214, 214) rgb(214, 214, 214) rgb(199, 199, 199); border-image: initial; background-color: rgb(240, 240, 240); }
+.markdown-preview[data-use-github-style] { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); background-color: rgb(255, 255, 255); overflow: scroll; }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left: 4px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { background-color: rgb(255, 255, 255); border-top: 1px solid rgb(204, 204, 204); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; background-color: rgba(0, 0, 0, 0.0392157); border-radius: 3px; }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; background: transparent; border: 0px; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border-radius: 3px; }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; background-color: transparent; border: 0px; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; background-color: rgb(252, 252, 252); border-width: 1px; border-style: solid; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-image: initial; border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover .horizontal-scrollbar { visibility: visible; }
+.markdown-preview .task-list-item-checkbox { position: absolute; margin: 0.25em 0px 0px -1.4em; }
+.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(85, 85, 85); background-color: white; overflow: auto; }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(3, 3, 3); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(3, 3, 3); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(126, 126, 126); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: black; }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(126, 126, 126); border-color: rgb(214, 214, 214); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top: 2px dashed rgb(214, 214, 214); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(3, 3, 3); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(214, 214, 214); }
+.markdown-preview:not([data-use-github-style]) pre, .markdown-preview:not([data-use-github-style]) code { color: rgb(3, 3, 3); background-color: rgb(240, 240, 240); }
+.markdown-preview:not([data-use-github-style]) pre, .markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(245, 245, 245); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(3, 3, 3); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(214, 214, 214) rgb(214, 214, 214) rgb(199, 199, 199); border-image: initial; background-color: rgb(240, 240, 240); }
+.markdown-preview[data-use-github-style] { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); background-color: rgb(255, 255, 255); overflow: scroll; }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left: 4px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { background-color: rgb(255, 255, 255); border-top: 1px solid rgb(204, 204, 204); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; background-color: rgba(0, 0, 0, 0.0392157); border-radius: 3px; }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; background: transparent; border: 0px; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border-radius: 3px; }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; background-color: transparent; border: 0px; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; background-color: rgb(252, 252, 252); border-width: 1px; border-style: solid; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-image: initial; border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] pre, .markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre, .markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover .horizontal-scrollbar { visibility: visible; }
+.markdown-preview del { text-decoration: none; position: relative; }
+.markdown-preview del::after { border-bottom: 1px solid black; content: ""; left: 0px; position: absolute; right: 0px; top: 50%; }
+.markdown-preview .flash { animation: flash 1s ease-out 1; outline: rgba(255, 0, 0, 0) solid 1px; }
+.markdown-preview .flash:not(li) { display: block; }
+.bracket-matcher .region {
+  border-bottom: 1px dotted lime;
+  position: absolute;
+}
+
+.spell-check-misspelling .region {
+  border-bottom: 2px dotted rgba(255, 51, 51, 0.75);
+}
+.spell-check-corrections {
+  width: 25em !important;
+}
+
+pre.editor-colors {
+  background-color: white;
+  color: #555;
+}
+pre.editor-colors .invisible-character {
+  color: rgba(85, 85, 85, 0.2);
+}
+pre.editor-colors .indent-guide {
+  color: rgba(85, 85, 85, 0.2);
+}
+pre.editor-colors .wrap-guide {
+  background-color: rgba(85, 85, 85, 0.2);
+}
+pre.editor-colors .gutter {
+  color: #555;
+  background: white;
+}
+pre.editor-colors .gutter .line-number.folded,
+pre.editor-colors .gutter .line-number:after,
+pre.editor-colors .fold-marker:after {
+  color: #e87b00;
+}
+pre.editor-colors .invisible {
+  color: #555;
+}
+pre.editor-colors .selection .region {
+  background-color: #e1e1e1;
+}
+pre.editor-colors .bracket-matcher .region {
+  background-color: #C9C9C9;
+  opacity: .7;
+  border-bottom: 0 none;
+}
+pre.editor-colors.is-focused .cursor {
+  border-color: black;
+}
+pre.editor-colors.is-focused .selection .region {
+  background-color: #afc4da;
+}
+pre.editor-colors.is-focused .line-number.cursor-line-no-selection,
+pre.editor-colors.is-focused .line.cursor-line {
+  background-color: rgba(255, 255, 134, 0.34);
+}
+pre.editor-colors .syntax--source.syntax--gfm {
+  color: #444;
+}
+pre.editor-colors .syntax--gfm .syntax--markup.syntax--heading {
+  color: #111;
+}
+pre.editor-colors .syntax--gfm .syntax--link {
+  color: #888;
+}
+pre.editor-colors .syntax--gfm .syntax--variable.syntax--list {
+  color: #888;
+}
+pre.editor-colors .syntax--markdown .syntax--paragraph {
+  color: #444;
+}
+pre.editor-colors .syntax--markdown .syntax--heading {
+  color: #111;
+}
+pre.editor-colors .syntax--markdown .syntax--link {
+  color: #888;
+}
+pre.editor-colors .syntax--markdown .syntax--link .syntax--string {
+  color: #888;
+}
+.syntax--comment {
+  color: #999988;
+  font-style: italic;
+}
+.syntax--string {
+  color: #D14;
+}
+.syntax--string .syntax--source,
+.syntax--string .syntax--meta.syntax--embedded.syntax--line {
+  color: #5A5A5A;
+}
+.syntax--string .syntax--punctuation.syntax--section.syntax--embedded {
+  color: #920B2D;
+}
+.syntax--string .syntax--punctuation.syntax--section.syntax--embedded .syntax--source {
+  color: #920B2D;
+}
+.syntax--constant.syntax--numeric {
+  color: #D14;
+}
+.syntax--constant.syntax--language {
+  color: #606aa1;
+}
+.syntax--constant.syntax--character,
+.syntax--constant.syntax--other {
+  color: #606aa1;
+}
+.syntax--constant.syntax--symbol {
+  color: #990073;
+}
+.syntax--constant.syntax--numeric.syntax--line-number.syntax--find-in-files .syntax--match {
+  color: rgba(143, 190, 0, 0.63);
+}
+.syntax--variable {
+  color: #008080;
+}
+.syntax--variable.syntax--parameter {
+  color: #606aa1;
+}
+.syntax--keyword {
+  color: #222;
+  font-weight: bold;
+}
+.syntax--keyword.syntax--unit {
+  color: #445588;
+}
+.syntax--keyword.syntax--special-method {
+  color: #0086B3;
+}
+.syntax--storage {
+  color: #222;
+}
+.syntax--storage.syntax--type {
+  color: #222;
+}
+.syntax--entity.syntax--name.syntax--class {
+  text-decoration: underline;
+  color: #606aa1;
+}
+.syntax--entity.syntax--other.syntax--inherited-class {
+  text-decoration: underline;
+  color: #606aa1;
+}
+.syntax--entity.syntax--name.syntax--function {
+  color: #900;
+}
+.syntax--entity.syntax--name.syntax--tag {
+  color: #008080;
+}
+.syntax--entity.syntax--other.syntax--attribute-name {
+  color: #458;
+  font-weight: bold;
+}
+.syntax--entity.syntax--name.syntax--filename.syntax--find-in-files {
+  color: #E6DB74;
+}
+.syntax--support.syntax--constant,
+.syntax--support.syntax--function,
+.syntax--support.syntax--type {
+  color: #458;
+}
+.syntax--support.syntax--class {
+  color: #008080;
+}
+.syntax--invalid {
+  color: #F8F8F0;
+  background-color: #00A8C6;
+}
+.syntax--invalid.syntax--deprecated {
+  color: #F8F8F0;
+  background-color: #8FBE00;
+}
+.syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--string.syntax--quoted.syntax--double.syntax--json,
+.syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--string.syntax--quoted.syntax--double.syntax--json .syntax--punctuation.syntax--string {
+  color: #000080;
+}
+.syntax--meta.syntax--structure.syntax--dictionary.syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--double.syntax--json {
+  color: #d14;
+}
+.syntax--meta.syntax--diff,
+.syntax--meta.syntax--diff.syntax--header {
+  color: #75715E;
+}
+.syntax--css.syntax--support.syntax--property-name {
+  font-weight: bold;
+  color: #333;
+}
+.syntax--css.syntax--constant {
+  color: #099;
+}
+</style>
+  </head>
+  <body class='markdown-preview'><h2><center>人工智能发展简史报告</center></h2>
+<br>
+从1956年达特茅斯会议开始，到2016年Alpha Go，AI的发展走过整整60年.期间对AI研究的高潮和低谷交替出现，研究人员也取得了举世瞩目的进展。但目及所见处，只是眼前的一小段距离，AI的发展依旧任重道远。
+<h3>1.1950 图灵测试</h3>
+<ul>
+<li>由计算机科学之父图灵在1950年发表论文《计算机器与智能》。其中中提出一种测试方法——图灵测试：如果电脑能在5分钟内回答由人类测试者提出的一系列问题，且其超过30%的回答让测试者误认为是人类所答，则电脑就通过测试并可下结论为机器具有智能。</li>
+<li>论文中图灵定义并解释了人工智能及其研究目的和发展方向,并驳斥了此前科学界及社会上普遍存在的反对观点,被称为 <strong>人工智能科学的开山之作</strong> 。</li>
+</ul>
+<h3>2.1956 历史性的会议</h3>
+<ul>
+<li>一般认为，<strong>AI的诞生</strong> 在1956年夏季，在美国东北部风景如画的大学达特茅斯学院。</li>
+<li>与会十来人，其中就包括后来获得图灵奖的马文·明斯基(Marvin Minsky)、约翰·麦卡锡(JohnMccarthy)、艾伦·纽厄尔(Allen Newell)、赫伯特·西蒙(Herbert ASimon)四人，会议召集者麦卡锡当时还只是达特茅斯学院的数学系年轻助教，但正是他们，开启了波澜壮阔、跌宕困顿的AI史诗序幕。</li>
+<li>达特茅斯会议之后的十多年，AI专门研究机构开始创建，AI研究不断取得进展，鼓励前沿探索研究的经费源源不断，这段时间称为 <strong>AI的黄金十年</strong> 。</li>
+</ul>
+<h3>3.1956-1974 黄金年代</h3>
+<ul>
+<li>
+<p>达特茅斯会议之后的数年是大发现的时代。人们发现计算机可以去解决代数应用题，证明几何定理，学习和使用英语。当时大多数人几乎无法相信机器能够如此“智能”。</p>
+<ul>
+<li>1957年，弗兰克·罗森布拉特（Frank Rosenblatt）打造出 <strong>感知机</strong> (Perceptron)，能够基于两层计算机网络进行模式识别。</li>
+<li>1958年，约翰·麦卡锡（John McCarthy）开发编程语言 <strong>Lisp</strong> 。之后Lisp成为人工智能研究中最流行的编程语言。</li>
+<li>1959年，阿瑟·萨缪尔（Arthur Samuel）创造了“机器学习”一词。</li>
+<li>1961年，第一台工业机器人Unimate开始在新泽西州通用汽车工厂的生产线上工作。</li>
+<li>1972年，斯坦福大学开发出名为“MYCIN”的专家系统。能够利用人工智能识别感染细菌，并推荐抗生素。</li>
+</ul>
+</li>
+<li>
+<p>当时的AI研究人员对AI的发展及其乐观：</p>
+<ul>
+<li>1958年西蒙预言“十年之内，计算机将成为国际象棋世界冠军”。</li>
+<li>纽厄尔说“十年之内，计算机将发现并证明一个重要数学定理”。</li>
+<li>1965年，西蒙认为“二十年内，机器将能完成人能做到的一切工作”。</li>
+<li>1967年，明斯基更大胆判断：“在我们这一代人的努力下，创造人工智能难题将会从根本上被解决。</li>
+</ul>
+</li>
+<li>
+<p>要知道当时的经费几乎是无条件地提供给实验室的，然凌冬降至，好景不长。</p>
+</li>
+</ul>
+<h3>4.1974-1980 计算之殇</h3>
+<ul>
+<li>
+<p>上世纪70年代初，AI遭遇瓶颈，AI研究者们遭遇了无法克服的基础性障碍，问题和批评也接踵而来。人们发现逻辑证明器、感知器、增强学习等等只能做很简单、非常专门且很窄的任务，稍微超出范围却发现高墙林立，无法应对。这其中计算机存在几方面的局限。</p>
+<ul>
+<li>计算机的运算能力：当时的计算机有限的内存和处理速度不足以解决任何实际的AI问题。</li>
+<li>计算复杂性和指数爆炸：除了那些最简单的情况，这些问题的解决需要近乎无限长的时间，成为了不可能完成的计算任务。</li>
+<li>常识与推理：许多重要的AI应用，都需要计算机处理对世界的认识信息，然而研究者们很快发现达到这个认知水平要求太高了。</li>
+<li>莫拉维克悖论：证明定理和解决几何问题对计算机而言相对容易，而一些看似简单的任务，如人脸识别或穿过屋子，实现起来却极端困难。</li>
+</ul>
+</li>
+<li>
+<p>资金上的困难接踵而至，由于缺乏进展，对AI提供资助的机构对无方向的AI研究逐渐停止了资助，如同釜底抽薪，曾经火热的AI从云端跌落，winter is comming…</p>
+</li>
+</ul>
+<h3>5.1980-1993 跌宕困顿</h3>
+<ul>
+<li>
+<p>进入20世纪80年代，卡耐基·梅隆大学为DEC公司制造出了名为XCON的 <strong>专家系统</strong> 。</p>
+<ul>
+<li>专家系统实际上是一套程序软件，能够从专门的知识库系统中，通过推理找到一定规律，像人类专家那样解决某一特定领域的问题。</li>
+</ul>
+<p>这个专家系统可帮助DEC公司每年节约4000万美元左右的费用，特别是在决策方面能提供有价值的内容。</p>
+</li>
+<li>
+<p>受此鼓励，很多国家包括日本、美国都再次投入巨资开发所谓第5代计算机。日本经济产业省拨款八亿五千万美元支持第五代计算机项目，英国开始了耗资三亿五千万英镑的Alvey工程，DARPA也行动起来，组织了战略计算促进会。</p>
+</li>
+<li>
+<p>在80年代出现了人工智能数学模型方面的重大发明，其中包括著名的 <strong>多层神经网络</strong> 和 <strong>BP反向传播算法</strong>（1986）等，也出现了无人驾驶汽车的研究范例(1986),聊天机器人（1988），能与人类下象棋的高度智能机器（1989）。</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li>1987年到1993年现代PC的出现，让人工智能的寒冬降临，持续近20年之久。Apple和IBM生产的台式机性能不断提升，计算机开始走入个人家庭，其费用远远低于专家系统所使用的Symbolics和Lisp等机器，一夜之间价值五亿美元的产业土崩瓦解。</li>
+</ul>
+<h3>6.1993-2006 曙光初照</h3>
+<ul>
+<li>
+<p>在1984年，马文·明斯基（Marvin Minsky）就警告“AI之冬”即将到来(三年后确实发生了）。但个人计算机产业蓬勃发展、互联网广泛使用，成为了一柄双刃剑，一方面把AI逼入寒冬，另一方面，却使人类社会获得前所未有的强大计算能力，通过互联网积累的信息、数据也岀现爆炸性增长，这些都在为AI日后复兴打下坚实的基础。</p>
+</li>
+<li>
+<p>新工具：在新的数学工具方面，原来已经存在于数学或者其他学科的文献中的数学模型，被重新发掘或者发明出来。当时比较显著几个成果包括最近获得图灵奖的 <strong>图模型以及图优化</strong> 、<strong>深度学习网络</strong> 等，都是大约在15年前重新被提出来，重新开始研究。</p>
+</li>
+<li>
+<p>新理念:在新的理论方面，由于数学模型对自然世界的简化，有着非常明确的数理逻辑，使得理论分析和证明成为可能.</p>
+</li>
+<li>
+<p><strong>摩尔定律</strong>:让计算越来越强大，当更强大的计算能力被转移到人工智能研究后，显著提高了人工智能的研究效果,一个新的繁荣期即将到来</p>
+</li>
+<li>
+<p>在这沉寂的近20年，AI也并非毫无发展：</p>
+<ul>
+<li>1997年，IBM研发的“深蓝”（Deep Blue）成为第一个击败人类象棋冠军的电脑程序。</li>
+<li>1998年，Yann LeCun和Yoshua Bengio发表关于神经网络应用于手写识别和优化反向传播的论文。</li>
+<li>2005年，Stanford开发的一台机器人在一条沙漠小径上成功地自动行驶了131英里，赢得了DARPA挑战大赛头奖。</li>
+</ul>
+</li>
+</ul>
+<h3>7.2006-2012 破冰之路</h3>
+<ul>
+<li>AI高速发展的浪潮还有些时日，但深度学习的征途已在寒冬中开始前行。</li>
+<li>
+<h4>“加拿大黑手党三人帮”</h4>
+<ul>
+<li>Geoffrey Hinton博士毕业后，AI刚好迎来第二次高潮，一直在神经网络领域耕耘的他并没有感到好时光到来；在AI第二次进入低谷时，Hinton仍然在这里坚守;在神经网络相关学术论文很难得到发表的那段时间，他坚持写了两百多篇研究论文，为后来的突破打下了坚实的基础。</li>
+<li>2004年，欣顿从加拿大高等研究所(CIFAR)获得了每年50万美元的经费支持,与Yann Lecun和Yoshua Bengio两位志同道合者的良好合作一下，他们将一批一流的计算机、生物学、电子工程、神经科学、物理学和心理学专家团结在一起，共同探索神经网络模拟人脑智能的新方法。三位深度学习的先驱和引领者，都与加拿大有渊源，之后都被高科技巨头公司网罗，被称为深度学习的&quot;加拿大黑手党三人帮”。</li>
+<li>2006年，Geoffrey Hinton 发表《Learning Multiple Layers of Representation》一些新思想和新方法被应用到深度学习领域。</li>
+<li>2012年ImageNet图像识别竞赛，Hinton和学生们采用深度学习的进行识别，将图像识别的准确率进步提高一个数量级，超过第二名10%以上。<strong>深度学习</strong> 的热潮从此掀起，势如破竹，锐不可挡，大踏步向前迈进。</li>
+</ul>
+</li>
+<li>
+<h4>“疯狂的冒险家”</h4>
+<ul>
+<li>
+<p>神经网络系统如果训练数据太少，会出现“ <strong>过拟合</strong> (overfitting)”。而学习结果能广泛适用，称为“<strong>泛化能力</strong>”，则需要大量数据，深度学习必须在计算能力大大增强和海量数据出现的情况下，才能充分发挥作用。</p>
+</li>
+<li>
+<p>深度学习的兴起，还需要依靠一双翅膀，而借助GPU强大并行计算处理能力，深度学习迅速展示了自己的工程可行性和广泛应用前景，GPU又因深度学习打开AI一个个应用新市场，得到快速发展。</p>
+<p>GPU，正是黄仁勋创办的英伟达(NVIDIA)公司首创。</p>
+</li>
+<li>
+<p>2007年Nvidia推出了基于CUDA的通用GPUbeta版，用高性能通用GPU让个人拥有几百美元的廉价超级计算机、能支持大规模 <strong>并行计算</strong> ，吸引使用各种编程语言的工程师纷纷用英伟达的GPU进行开发，增强了GPU的开放性和通用性。</p>
+</li>
+<li>
+<p>度学习涉及到的计算，主要进行高速度、大规模的矩阵运算。这样的应用场景下，计算能力强大而价格低廉的GPU，成为最好选择。随着深度学习取得巨大成功，几乎作为标配的GPU同步得到极大发展。</p>
+</li>
+</ul>
+</li>
+<li>
+<h4>“缔造传奇的ImageNet”</h4>
+<ul>
+<li>2007年，李飞飞（Fei Fei Li）和普林斯顿大学的同事开始建立ImageNet。这是一个近10亿张图片的大型注释图像数据库，旨在帮助视觉对象识别软件进行研究。2009年ImageNet诞生时，已有1500万张经过标注图片、含22000类物品的数据库，无论在质量上还是数量上，这都是一个规模空前的数据库。</li>
+<li>大数据威力很快显示出来了，ImageNet大数据集开源，成为检验各种AI算法的最权威平台，也成为评价AI科研机构和科技公司AI实力的最好竞技场。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>深度学习最终借助GPU这双强有力的翅膀和大数据广阔的研究平台，直上云霄。</li>
+</ul>
+<h3>8.2012-至今 浪潮之巅</h3>
+<ul>
+<li>
+<h4>“重建巴别塔”</h4>
+<ul>
+<li>《圣经》记载，远古人类希望建造一座通往天堂的高塔，这就是巴别塔（Tower of Babel）。为了阻止人类的计划，上帝让人类说不同的语言，分成了不同的民族。 现在，<strong>机器翻译</strong>（Mchine Translation）让人类的梦想一步步走向实现。</li>
+<li>2011年夏天，Hinton的博士生Navdeep Jaitly来谷歌语音识别组实习，用深度神经网络来替代高斯混合模型做声学模型，获得了显著超出谷歌原系统的识别结果。2012年初谷歌发布Voice Search，是业界首次将深度学习用于大词汇量语音识别产品中。</li>
+<li>2016年10月18日，由微软首席语音科学家黄学东博士带领的语音团队在权威的产业标准 Switchboard 语音识别基准测试中，实现了对话语音识别词错率5.9%，首次达到与专业速记员持平，被认为是AI领域历史性的突破。</li>
+</ul>
+</li>
+<li>
+<h4>“开眼看世界”</h4>
+<ul>
+<li>2012年6月，吴恩达（Andrew Ng）和杰夫·迪恩（Jeff Dean）在给一个大型神经网络展示1000万张未标记的网络图像时，发现神经网络能够识别出一只猫的形象。如今在ImageNet图片集里，人眼辨识错误率大概为5.1%，而已有算法能够达到低于5%的结果。 <strong>计算机视觉</strong> 已经开始应用于智能安防、婴儿和老人看护、无人汽车和无人机等各种需要视觉的领域。接下来科学家们正在探索通用型视觉识别算法和工程化实现。一旦工程化实现了通用型视觉识别技术，智能机器开眼看世界的那一天就不远了。</li>
+</ul>
+</li>
+<li>
+<h4>“MOOC之道”</h4>
+<ul>
+<li>2012年，是MOOC元年。1月，Sebastian Thrun 辞去斯坦福大学终身教职，在硅谷创立了第一家MOOC教育公司 Udacity。4月，Daphne Koller 和她的同事吴恩达(Andrew Ng)共同创办了 Coursera。5月，MIT和哈佛大学联手创办了非盈利性机构 edX。</li>
+<li>MOOC的巨大影响，正是由于AI在其中扮演重要角色，分布于世界各地的授课者和大规模学习者的多空间交互、学生作业的讨论完成与评判、检查课程完成情况的各种小测验与期中期末考试等等，这些教学工作如果没有数据挖掘、教育专家系统、人机交互等多种AI手段的帮助，不可能完成。</li>
+</ul>
+</li>
+<li>
+<h4>“承上启下的AlphaGo”</h4>
+<ul>
+<li>当AlphaGo战胜李世石，人工智能两个时代也完成了交接。人工智能前60年，主要通过有监督的深度学习算法，解决语音识别、图像识别、自然语言理解等总样本量有上限的相对“有穷大”问题。AlphaGo对 <strong>强化学习</strong> 的探索，更接近生物学习的行为特征，具有探索未知世界的能力,打开了“无穷大”的大门。</li>
+</ul>
+</li>
+</ul>
+<p>在60年这个节点上，经过了1980年和2000年两次寒冬，全球人工智能界又迎来了第三次浪潮。这一次，随着前60年有监督深度学习算法的理论研究和工程化的成熟，以及硬件计算能力的大幅提升和成本的飞速降低，在云计算、大数据和移动互联网的融合推动下，AI在很多方面都有了突破性进展。</p>
+<p>目前我们能在书中学习的，都是AI发展伊始荜路蓝缕多年的研究成果，能从论文中获悉的，是5年来各领域不断研究的新进展，对于未来，目及所见，任重道远。</p>
+<p>We can only see a short distance ahead,but we can see plenty there that needs to be done。  ——A.M.Turing</p>
+<h4>参考文献：</h4>
+<ul>
+<li>
+<p>Turing, Alan, Computing Machinery and Intelligence, Mind, October 1950, LIX (236): 433–460 [2008-08-18], ISSN 0026-4423, doi:10.1093/mind/LIX.236.433 .</p>
+</li>
+<li>
+<p>Lecun Y, Bengio Y, Hinton G. Deep learning[J]. Nature, 2015, 521(7553):436-444.</p>
+</li>
+<li>
+<p>Krizhevsky A, Sutskever I, Hinton G E. ImageNet classification with deep convolutional neural networks[C]// International Conference on Neural Information Processing Systems. Curran Associates Inc. 2012:1097-1105.</p>
+</li>
+<li>
+<p>Russell S J, Norvig P. Artificial Intelligence: A Modern Approach[M]. 人民邮电出版社, 2002.</p>
+</li>
+<li>
+<p>wikipedia 人工智能史</p>
+</li>
+</ul></body>
+</html>
